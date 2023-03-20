@@ -1,9 +1,9 @@
 ## 1 - GCP and Terraform
 
-* [1.1 Setting up GCP](#setting-up-gcp)
-* [1.2 Setting up Terraform](#setting-up-terraform)
+* [1.1 Setting up GCP](#11---setting-up-gcp)
+* [1.2 Setting up Terraform](#12---setting-up-terraform)
 
-## 1.1 Setting up GCP
+## 1.1 - Setting up GCP
 
 **Step 1:** create a GCP Project named nyc-motor-vehicle-collisions.
 
@@ -32,7 +32,7 @@ export GOOGLE_APPLICATION_CREDENTIALS="$(pwd)/leafy-momentum-381114-c383fbc45666
 gcloud auth application-default login
 ```
 
-## 1.2 Setting up Terraform
+## 1.2 - Setting up Terraform
 
 **Step 1:** initialize terraform and install any required plugins and settings.
 ```
