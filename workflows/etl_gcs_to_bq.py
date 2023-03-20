@@ -5,7 +5,7 @@ from prefect_gcp.cloud_storage import GcsBucket
 from prefect_gcp import GcpCredentials
 
 @task(retries=3)
-def extract(gcs_path : str = 'raw/nyc_mvc.parquet') -> Path:
+def extract(gcs_path : str = 'raw/nyc_mvc.parquet') -> pd.DataFrame:
     """Downloads NYC MVC data from GCS."""
     gcs_block = GcsBucket.load("nyc-mvc-bucket")
     gcs_block.get_directory(from_path=gcs_path, local_path='./')
@@ -64,7 +64,7 @@ def write_to_bigquery(
 
 @flow()
 def etl_gcs_to_bq():
-    """Main ETL flow to load data into BigQuery"""
+    """Main ETL flow to extract data from GCS, transform and load it into BigQuery."""
     data = extract()
     data = transform(data)
     write_to_bigquery(data)

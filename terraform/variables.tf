@@ -8,7 +8,21 @@ variable "project" {
 
 variable "region" {
   description = "Region for GCP resources. Choose as per your location: https://cloud.google.com/about/locations"
-  default = "europe-west6"
+  default     = "us-central1"
+  type        = string
+}
+
+variable "zone" {
+  description = "Region for GCP instance."
+  default     = "us-central1-a"
+}
+
+variable "instance_name" {
+  default = "nyc-mvc-instance-terraform"
+  type    = string
+}
+
+variable "prefect_api_key" {
   type = string
 }
 
