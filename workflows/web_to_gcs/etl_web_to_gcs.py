@@ -11,8 +11,7 @@ def extract(dataset_url: str) -> pd.DataFrame:
 
 @task(log_prints=True)
 def transform(data: pd.DataFrame) -> pd.DataFrame:
-    """Merges columns CRASH DATE and CRASH TIME into a new column CRASH DATETIME and transforms ZIP CODE column to int.
-    """
+    """Merges columns CRASH DATE and CRASH TIME into a new column CRASH DATETIME and transforms ZIP CODE column to int."""
     def transform_zipcode(zip_code):
         if isinstance(zip_code, str):
             zip_code = zip_code.strip()
