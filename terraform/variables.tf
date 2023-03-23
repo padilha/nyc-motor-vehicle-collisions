@@ -26,6 +26,18 @@ variable "prefect_api_key" {
   type = string
 }
 
+variable "prefect_workspace" {
+  type = string
+}
+
+variable "dockerhub_user" {
+  type = string
+}
+
+variable "dockerhub_passwd" {
+  type = string
+}
+
 variable "storage_class" {
   description = "Storage class type for your bucket. Check official docs for more info."
   default = "STANDARD"

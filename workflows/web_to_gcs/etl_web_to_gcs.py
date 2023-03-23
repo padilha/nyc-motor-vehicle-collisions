@@ -43,7 +43,7 @@ def write_to_gcs(path: Path) -> None:
     gcp_cloud_storage_bucket_block.upload_from_path(from_path=path, to_path=path)
 
 @flow()
-def nyc_mvc_etl(dataset_url: str = 'https://data.cityofnewyork.us/api/views/h9gi-nx95/rows.csv') -> None:
+def etl_web_to_gcs(dataset_url: str = 'https://data.cityofnewyork.us/api/views/h9gi-nx95/rows.csv') -> None:
     """Runs the NYC Motor Vehicle Collisions ETL flow. Extracts data from the web, transforms and loads it into GCS."""
     data = extract(dataset_url)
     data = transform(data)
@@ -51,4 +51,4 @@ def nyc_mvc_etl(dataset_url: str = 'https://data.cityofnewyork.us/api/views/h9gi
     write_to_gcs(path)
 
 if __name__ == '__main__':
-    nyc_mvc_etl()
+    etl_web_to_gcs()

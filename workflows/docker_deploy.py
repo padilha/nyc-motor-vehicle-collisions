@@ -1,14 +1,23 @@
 from prefect.deployments import Deployment
-from parameterized_flow import etl_parent_flow
 from prefect.infrastructure.docker import DockerContainer
-
-docker_block = DockerContainer.load("zoom")
-
-docker_dep = Deployment.build_from_flow(
-    flow=etl_parent_flow,
-    name='docker-flow',
-    infrastructure=docker_block
-)
+from web_to_gcs.etl_web_to_gcs import etl_web_to_gcs
+from gcs_to_bq.etl_gcs_to_bq import etl_gcs_to_bq
 
 if __name__ == '__main__':
-    docker_dep.apply()
+    etl_web_to_gcs_container = DockerContainer.load('etl-web-to-gcs')
+    etl_web_to_gcs_deployment = Deployment.build_from_flow(
+        flow=etl_web_to_gcs,
+        name='web-to-gcs-docker-flow',
+        infrastructure=etl_web_to_gcs_container,
+        entrypoint='etl_web_to_gcs.py:etl_web_to_gcs'
+    )
+    etl_web_to_gcs_deployment.apply()
+
+    etl_gcs_to_bq_container = DockerContainer.load('etl-gcs-to-bq')
+    etl_gcs_to_bq_deployment = Deployment.build_from_flow(
+        flow=etl_gcs_to_bq,
+        name='docker-flow',
+        infrastructure=etl_gcs_to_bq_container,
+        entrypoint='etl_gcs_to_bq.py:etl_gcs_to_bq'
+    )
+    etl_gcs_to_bq_deployment.apply()
