@@ -1,3 +1,4 @@
+**/__pycache__/
 terraform/.*
 terraform/*.tfstate*
-leafy-momentum-381114-c383fbc45666.json
+.credentials/
