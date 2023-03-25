@@ -136,4 +136,11 @@ In this section we are going to create our GCP infrastructure using Terraform an
 
 ## 3. Partitioning and clustering data in BigQuery
 
-TO DO
+After running our Prefect workflows, we will have a table named "crashes" in BigQuery. To improve query performance and optimize costs, in this section we are going to partition our table by date and cluster it by borough. For such, open BigQuery and run the following SQL statement.
+
+```sql
+CREATE OR REPLACE TABLE `leafy-momentum-381114.nyc_mvc_data.crashes_partitioned_clustered`
+PARTITION BY DATE(crash_datetime)
+CLUSTER BY borough AS
+SELECT * FROM `leafy-momentum-381114.nyc_mvc_data.crashes`;
+```
