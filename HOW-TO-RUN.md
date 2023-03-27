@@ -16,7 +16,7 @@ In this section, we are going to create a GCP project and a service accout.
 
     ![](./img/service-account2.png)
 
-    **Important note:** in this project we are granting "BigQuery Admin", "Storage Admin" and "Storage Object Admin" permissions to our service account. Note, however, that this is not recommended for real world scenarios. In such cases, we must follow the [principle of least privilege](https://cloud.google.com/blog/products/application-development/least-privilege-for-cloud-functions-using-cloud-iam).
+    > **Note:** in this project we are granting "BigQuery Admin", "Storage Admin" and "Storage Object Admin" permissions to our service account. Note, however, that this is not recommended for real world scenarios. In such cases, we must follow the [principle of least privilege](https://cloud.google.com/blog/products/application-development/least-privilege-for-cloud-functions-using-cloud-iam).
 
 3. Generate ssh keys for our service account, by clicking on the "Manage keys" option under "Actions" in the service accounts page. Then, click on "Add Key -> Create New Key -> JSON", download the key and save it in the project directory.
 
@@ -101,7 +101,7 @@ In this section we are going to create our GCP infrastructure using Terraform an
 
     We have just created our GCS Bucket, BigQuery Data Warehouse and Virtual Machine to run our Prefect workflows.
 
-    **Important note:** reboot VM because of prefect agent
+    > **Note:** reboot VM because of prefect agent
 
 7. Create a credentials block in Prefect Cloud (paste the content of the service account json file in "Service Account Info").
 
