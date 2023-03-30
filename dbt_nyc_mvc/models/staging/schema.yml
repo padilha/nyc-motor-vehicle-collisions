@@ -1,0 +1,38 @@
+
+version: 2
+
+sources:
+    - name: staging
+      database: leafy-momentum-381114
+      schema: nyc_mvc_data
+      tables:
+        - name: crashes
+
+models:
+    - name: stg_crashes
+      description: >
+        The Motor Vehicle Collisions data tables contain information from all police reported motor vehicle collisions in NYC.
+        The police report (MV104-AN) is required to be filled out for collisions where someone is injured or killed, or where
+        there is at least $1000 worth of damage.
+      columns:
+        - name: collision_id
+          description: Primary key for this table.
+          tests:
+            - unique:
+                severity: warn
+            - not_null:
+                severity: warn
+        - name: crash_datetime
+          description: The date and time of the accident.
+        - name: borough
+          description: Borough where the crash happened.
+        - name: latitude
+          description: Latitude coordinate for Global Coordinate System, WGS 1984, decimal degrees (EPSG 4326).
+        - name: longitude
+          description: Longitude coordinate for Global Coordinate System, WGS 1984, decimal degrees (EPSG 4326).
+        - name: number_of_persons_injured
+          description: Number of persons injured.
+        - name: number_of_persons_killed
+          description: Number of persons killed.
+        - name: contributing_factor_vehicle_1
+          description: Factors contributing to the collision for designated vehicle.
