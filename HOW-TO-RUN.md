@@ -2,7 +2,7 @@
 
 1. [Setting up GCP](#1-setting-up-gcp)
 2. [Setting up Prefect workflows and Terraform infrastructure](#2-setting-up-prefect-workflows-and-terraform-infrastructure)
-3. [Partitioning and clustering data in BigQuery](#3-partitioning-and-clustering-data-in-bigquery)
+3. [Dbt project](#3-dbt-project)
 
 ## 1. Setting up GCP
 
@@ -134,13 +134,8 @@ In this section we are going to create our GCP infrastructure using Terraform an
 
     ![](./img/prefect-dag2.png)
 
-## 3. Partitioning and clustering data in BigQuery
+## 3. Dbt project
 
-After running our Prefect workflows, we will have a table named "crashes" in BigQuery. To improve query performance and optimize costs, in this section we are going to partition our table by date and cluster it by borough. For such, open BigQuery and run the following SQL statement.
+1. [Set up dbt cloud with BigQuery](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md). Use dbt_nyc_mvc as the directory for your project.
 
-```sql
-CREATE OR REPLACE TABLE `leafy-momentum-381114.nyc_mvc_data.crashes_partitioned_clustered`
-PARTITION BY DATE(crash_datetime)
-CLUSTER BY borough AS
-SELECT * FROM `leafy-momentum-381114.nyc_mvc_data.crashes`;
-```
+2. [Create a deployment job](https://github.com/padilha/de-zoomcamp/tree/master/week4#de-zoomcamp-441---deployment-using-dbt-cloud) that runs every day at 02:00 AM UTC.
