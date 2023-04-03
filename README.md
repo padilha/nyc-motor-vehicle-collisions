@@ -6,7 +6,7 @@ For my course notes and homework solutions, check my [DE Zoomcamp repository](ht
 
 ## Project description
 
-According to the dataset description, there is a police report in New York City that must be filled out whenever an accident where a person is injured or killed or there are more than 1000 dollars worth of damage. The dataset contains accident records since july/2012 and is updated on a daily base. Currently (March 2023), it has around 1.98 million rows.
+According to the dataset description, there is a police report in New York City that must be filled out whenever an accident where a person is injured or killed or there are more than 1000 dollars worth of damage. The dataset contains accident records since july/2012 and is updated on a daily base. As of March 2023, it has around 1.98 million rows.
 
 This project has the goal of answering the following questions:
 
@@ -16,7 +16,7 @@ This project has the goal of answering the following questions:
 
 3. How many people were injured per year since 2013?
 
-4. What is the most common contributing factor for accidents that involved a single vehicle since 2013?
+4. What is the contributing factor distribution for accidents that involved a single vehicle since 2013?
 
 ## Project architecture and technologies used
 
@@ -52,7 +52,7 @@ The following technologies were used:
 
 ![](./img/q3.png)
 
-4. What is the most common contributing factor for accidents that involved a single vehicle since 2013?
+4. What is the contributing factor distribution for accidents that involved a single vehicle since 2013?
 
 ![](./img/q4.png)
 
