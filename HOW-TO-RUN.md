@@ -4,6 +4,12 @@
 2. [Setting up Prefect workflows and Terraform infrastructure](#2-setting-up-prefect-workflows-and-terraform-infrastructure)
 3. [Dbt project](#3-dbt-project)
 
+## Requirements
+
+* [gcloud CLI](https://cloud.google.com/sdk/docs/install)
+* [docker](https://docs.docker.com/engine/install/ubuntu/)
+* [miniconda](https://docs.conda.io/en/latest/miniconda.html)
+
 ## 1. Setting up GCP
 
 In this section, we are going to create a GCP project and a service accout.
