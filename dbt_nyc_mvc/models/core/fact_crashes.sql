@@ -3,7 +3,7 @@
         partition_by={
             "field": "crash_datetime",
             "data_type": "datetime",
-            "granularity": "day"
+            "granularity": "year"
         },
         cluster_by=["borough", "contributing_factor_vehicle_1"]
     )
