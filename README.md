@@ -26,7 +26,7 @@ This project has the goal of answering the following questions:
 
 * Prefect dataflows:
 
-    1. [ETL Web to GCS](./workflows/web_to_gcs/etl_web_to_gcs.py): fetches data from the NYC Open Data API (Extract), converts the ZIP CODE column to int to avoid mixed type exceptions and creates the CRASH DATETIME column by merging the CRASH DATE and CRASH TIME coluns (Transform), and loads the data into GCS (Load).
+    1. [ETL Web to GCS](./workflows/web_to_gcs/etl_web_to_gcs.py): fetches data from the NYC Open Data API (Extract), converts the ZIP CODE column to int to avoid mixed type exceptions and creates the CRASH DATETIME column by merging the CRASH DATE and CRASH TIME columns (Transform), and loads the data into GCS (Load).
 
     2. [ETL GCS to BigQuery](./workflows/gcs_to_bq/etl_gcs_to_bq.py): fetches data from GCS (Extract), transforms string columns by stripping leading and trailing whitespaces, replacing multiple spaces with a single space and bringing all column names to lowercase (Transform), and loads the data into BigQuery (Load).
 
@@ -48,7 +48,7 @@ This project has the goal of answering the following questions:
 
 * [Data build tool (dbt)](https://www.getdbt.com/) for transforming, partitioning and clustering the dataset in the data warehouse.
 
-* [Google Lookerstudio](https://lookerstudio.google.com/) for creating dashboards to visualize the dataset.
+* [Google Lookerstudio](https://lookerstudio.google.com/) for creating a dashboard to visualize the dataset.
 
 ## Results
 
@@ -58,7 +58,7 @@ The dashboard is publicly available in this [link](https://lookerstudio.google.c
 
 ### Key findings
 
-* The borough information is null for 32% of the records in each year, on average.
+* The borough information is null for 32% of the records in each year, on average. One way to circumvent this limitation could be to use the [NYC Borough Boundaries data](https://data.cityofnewyork.us/City-Government/Borough-Boundaries/tqmj-j8zm) for checking where each accident happened based on the reported latitude and longitude pairs and using [Geopandas](https://geopandas.org/en/stable/index.html) to determine the respective borough.
 
 * Considering only records that contain the borough information, brooklyn and queens account for more than 50% of the accidents.
 
