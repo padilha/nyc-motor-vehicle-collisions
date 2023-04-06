@@ -6,7 +6,7 @@ from prefect_gcp.cloud_storage import GcsBucket
 
 @task(retries=3)
 def extract(dataset_url: str) -> pd.DataFrame:
-    """Read NYC MVC data into pandas DataFrame."""
+    """Reads NYC MVC data into pandas DataFrame."""
     return pd.read_csv(dataset_url)
 
 @task(log_prints=True)
@@ -30,7 +30,7 @@ def transform(data: pd.DataFrame) -> pd.DataFrame:
 
 @task()
 def write_to_local(data: pd.DataFrame, data_dir: str = 'raw', dataset_filename: str = 'nyc_mvc') -> Path:
-    """Write DataFrame as a parquet file."""
+    """Writes a DataFrame as a parquet file."""
     Path(data_dir).mkdir(parents=True, exist_ok=True)
     path = Path(f'{data_dir}/{dataset_filename}.parquet')
     data.to_parquet(path, compression='gzip')
@@ -38,7 +38,7 @@ def write_to_local(data: pd.DataFrame, data_dir: str = 'raw', dataset_filename: 
 
 @task()
 def write_to_gcs(path: Path) -> None:
-    """Upload local parquet file to GCS."""
+    """Uploads the local parquet file to GCS."""
     gcp_cloud_storage_bucket_block = GcsBucket.load("nyc-mvc-bucket")
     gcp_cloud_storage_bucket_block.upload_from_path(from_path=path, to_path=path)
 

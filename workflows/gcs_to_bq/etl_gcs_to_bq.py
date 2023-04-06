@@ -52,7 +52,7 @@ def write_to_bigquery(
     project_id: str = 'leafy-momentum-381114',
     chunksize: int = 300_000
 ) -> None:
-    """Write DataFrame to BigQuery"""
+    """Writes a DataFrame to BigQuery"""
     gcp_credentials_block = GcpCredentials.load('nyc-mvc-credentials')
     data.to_gbq(
         destination_table=destination_table,
