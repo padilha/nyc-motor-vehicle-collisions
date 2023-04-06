@@ -1,16 +1,18 @@
 ## Overview
 
-1. [Setting up GCP](#1-setting-up-gcp)
-2. [Setting up Prefect workflows and Terraform infrastructure](#2-setting-up-prefect-workflows-and-terraform-infrastructure)
-3. [Dbt project](#3-dbt-project)
+1. [Local requirements](#1-local-requirements)
+1. [Setting up GCP](#2-setting-up-gcp)
+2. [Setting up Prefect workflows and Terraform infrastructure](#3-setting-up-prefect-workflows-and-terraform-infrastructure)
+3. [Dbt project](#4-dbt-project)
 
-## Requirements
+## 1. Local requirements
 
 * [gcloud CLI](https://cloud.google.com/sdk/docs/install)
 * [docker](https://docs.docker.com/engine/install/ubuntu/)
 * [miniconda](https://docs.conda.io/en/latest/miniconda.html)
+* Create environment from yml file: `conda env create -f env.yml`
 
-## 1. Setting up GCP
+## 2. Setting up GCP
 
 In this section, we are going to create a GCP project and a service accout.
 
@@ -50,7 +52,7 @@ In this section, we are going to create a GCP project and a service accout.
     ssh -i ~/.ssh/gcp nyc-user@34.65.220.26
     ```
 
-## 2. Setting up Prefect workflows and Terraform infrastructure
+## 3. Setting up Prefect workflows and Terraform infrastructure
 
 In this section we are going to create our GCP infrastructure using Terraform and deploy two Prefect workflows: the first one extracts data from the web and loads it into GCS and the second one pulls data from GCS and loads it into BigQuery.
 
@@ -140,7 +142,7 @@ In this section we are going to create our GCP infrastructure using Terraform an
 
     ![](./img/prefect-dag2.png)
 
-## 3. Dbt project
+## 4. Dbt project
 
 1. [Set up dbt cloud with BigQuery](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md). Use dbt_nyc_mvc as the directory for your project.
 
