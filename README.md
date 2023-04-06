@@ -66,4 +66,4 @@ The dashboard is publicly available in this [link](https://lookerstudio.google.c
 
 * From 2013 to 2022, the minimum number of people injured in a single year was 44,615 (in 2020) while the maximum number was 61,941 (in 2018).
 
-* Besides "unspecified" (56.7%) and "others" (13.2%), the main contributing factor for accidents that involved a single vehicle since 2013 was "driver inattention/distraction" (12.4%).
+* Besides "unspecified" (56.7%) and "others" (13.2%), the main contributing factor reported for accidents that involved a single vehicle since 2013 was "driver inattention/distraction" (12.4%).
