@@ -58,7 +58,7 @@ The dashboard is publicly available in this [link](https://lookerstudio.google.c
 
 ### Key findings
 
-* The borough information is null for 32% of the records in each year, on average. One way to circumvent this limitation could be to use the [NYC Borough Boundaries data](https://data.cityofnewyork.us/City-Government/Borough-Boundaries/tqmj-j8zm) for checking where each accident happened based on the reported latitude and longitude pairs and using [Geopandas](https://geopandas.org/en/stable/index.html) to determine the respective borough.
+* The borough information is null for 32% of the records of each year, on average. One way to circumvent this limitation would be to use the [NYC Borough Boundaries data](https://data.cityofnewyork.us/City-Government/Borough-Boundaries/tqmj-j8zm) for checking where each accident happened based on the reported latitude and longitude pairs and using [Geopandas](https://geopandas.org/en/stable/index.html) to determine the respective borough.
 
 * Considering only records that contain the borough information, brooklyn and queens account for more than 50% of the accidents.
 
